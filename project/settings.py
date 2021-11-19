@@ -99,7 +99,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'django',  # ___CHANGEME___
         'USER': 'postgres',
         'PASSWORD': 'postgres'
