@@ -1,7 +1,6 @@
 import logging.config
 import os
 import sys
-import django_heroku
 
 
 # ==================================================================================================
@@ -254,5 +253,3 @@ EMAIL_HOST_PASSWORD = get('SMTP_PASSWORD', None)  # Required, add to Heroku conf
 EMAIL_USE_TLS = True
 
 SEND_MAIL = True if EMAIL_HOST_USER and EMAIL_HOST_PASSWORD else False
-
-django_heroku.settings(locals(), staticfiles=False)
