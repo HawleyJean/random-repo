@@ -1,7 +1,6 @@
 import logging.config
 import os
 import sys
-import django_heroku
 
 
 # ==================================================================================================
@@ -57,7 +56,6 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework',
     'rest_framework.authtoken',
-    'rest_framework_tracking',
 
     # Local
     'apps.file',
@@ -100,7 +98,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'django',  # ___CHANGEME___
         'USER': 'postgres',
         'PASSWORD': 'postgres'
@@ -140,7 +138,7 @@ LOGGING = {
     'disable_existing_loggers': False,
     'root': {
         'level': 'WARNING',
-        'handlers': ['console', 'sentry'],
+        'handlers': ['console'],
     },
     'formatters': {
         'custom': {
@@ -153,11 +151,6 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
             'formatter': 'custom'
-        },
-        'sentry': {
-            'level': 'WARNING',
-            'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
-            'tags': {'custom-tag': 'x'},
         },
     },
     'loggers': {
@@ -254,5 +247,3 @@ EMAIL_HOST_PASSWORD = get('SMTP_PASSWORD', None)  # Required, add to Heroku conf
 EMAIL_USE_TLS = True
 
 SEND_MAIL = True if EMAIL_HOST_USER and EMAIL_HOST_PASSWORD else False
-
-django_heroku.settings(locals(), staticfiles=False)
