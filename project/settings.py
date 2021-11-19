@@ -139,7 +139,7 @@ LOGGING = {
     'disable_existing_loggers': False,
     'root': {
         'level': 'WARNING',
-        'handlers': ['console', 'sentry'],
+        'handlers': ['console'],
     },
     'formatters': {
         'custom': {
