@@ -9,7 +9,6 @@ django-admin-interface
 django-dotenv
 django-extensions
 django-filter
-django-heroku
 django-storages
 djangorestframework
 djangorestframework-camel-case
